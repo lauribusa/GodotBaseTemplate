@@ -1,5 +1,7 @@
 # Godot 4+ specific ignores
 .godot/
+# Visual Studio
+.vs/
 
 # Godot-specific ignores
 .import/
