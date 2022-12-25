@@ -1,0 +1,35 @@
+keys,en,fr,es
+start.quit,Quit,Quitter,Dejar
+start.credits,Credits,Crédits,Créditos
+start.settings,Settings,Options,Opciones
+start.play,Play,Jouer,Jugar
+start.onQuit, Quit game?, Quitter le jeu ?, Quit game?
+start.onQuitLabel, Quit game?, Quitter?, Quit game?
+start.quitConfirm, Ok, Accepter, Ok
+start.quitCancel, Cancel, Annuler, Cancel
+_common.goBack, Go Back, Retour, Retour
+_common.ok, Confirm, Accepter, Ok
+_common.cancel, Cancel, Annuler, Annuler
+_common.quit, Quit, Quitter, Quit
+_common.close, Close, Fermer, Fermer
+settings.game, Game, Jeu, Jug
+settings.video, Video, Vidéo, Video
+settings.audio, Audio, Son, Audio
+settings.language, Language, Langage, langage
+settings.keyboardMode, Keyboard, Clavier, Keyboard
+settings.displayMode, Display Mode, Affichage, Affichage
+settings.en, English, Anglais, Anglais
+settings.fr, French, Français, Francais
+settings.WASD, WASD, WASD, WASD
+settings.ZQSD, ZQSD, ZQSD, ZQSD
+settings.fullscreen, Fullscreen, Plein écran, Fullscreen
+settings.windowed, Windowed, Fenêtré, Windowed
+settings.screenResolution, Screen Resolution, Résolution d'écran, resolution
+settings.vsync, V-Sync, V-Sync, V-Sync
+settings.displayFps, Display FPS, Afficher FPS, Display FPS
+settings.maxFps, Limit FPS, Limiter FPS, Limit FPS
+settings.uncapped, Uncapped, Illimité, Uncapped
+settings.brightness, Brightness, Eclairage, Brightness
+settings.mainVolume, Main Volume, Volume principal, main volume
+settings.musicVolume, Music Volume, Volume de la musique, Music Volume
+settings.sfxVolume, SFX Volume, Volume des effets sonores, SFX volume

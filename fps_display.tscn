@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://ck5l0xc3iak6m"]
+
+[ext_resource type="LabelSettings" uid="uid://b6gfcexlr841i" path="res://fps_label_settings.tres" id="1_pgr12"]
+[ext_resource type="Script" path="res://SettingsMenu/FpsDisplay.cs" id="2_51tq0"]
+
+[node name="FPSDisplay" type="Label"]
+visible = false
+top_level = true
+z_index = 100
+offset_left = 5.0
+offset_right = 104.0
+offset_bottom = 30.0
+text = "FPS: 60"
+label_settings = ExtResource("1_pgr12")
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("2_51tq0")

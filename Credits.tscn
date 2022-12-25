@@ -1,0 +1,170 @@
+[gd_scene load_steps=3 format=3 uid="uid://bn63urs8js7qf"]
+
+[ext_resource type="Script" path="res://CreditsMenu/BackButton.cs" id="1_q8gti"]
+[ext_resource type="LabelSettings" uid="uid://v3j1qlr14v02" path="res://LabelTitleSettings.tres" id="1_qc8uc"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.164706, 0.129412, 0.168627, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_constants/margin_left = 25
+theme_override_constants/margin_top = 25
+theme_override_constants/margin_right = 25
+theme_override_constants/margin_bottom = 100
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+offset_left = 25.0
+offset_top = 25.0
+offset_right = 1895.0
+offset_bottom = 980.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="Button" type="Button" parent="MarginContainer/VBoxContainer"]
+offset_right = 144.0
+offset_bottom = 31.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+text = "_common.goBack"
+script = ExtResource("1_q8gti")
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
+offset_left = 807.0
+offset_top = 35.0
+offset_right = 1063.0
+offset_bottom = 493.0
+size_flags_horizontal = 6
+size_flags_vertical = 3
+text = "Credits"
+label_settings = ExtResource("1_qc8uc")
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer"]
+offset_top = 497.0
+offset_right = 1870.0
+offset_bottom = 955.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/MarginContainer"]
+offset_right = 1870.0
+offset_bottom = 458.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/MarginContainer/VBoxContainer"]
+offset_right = 1870.0
+offset_bottom = 150.0
+grow_horizontal = 0
+grow_vertical = 0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/MarginContainer"]
+offset_right = 1870.0
+offset_bottom = 150.0
+theme_override_constants/separation = 30
+
+[node name="Programmer" type="Label" parent="MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/MarginContainer/HBoxContainer"]
+offset_right = 920.0
+offset_bottom = 150.0
+size_flags_horizontal = 3
+size_flags_vertical = 5
+text = "credits.programmer"
+horizontal_alignment = 2
+uppercase = true
+
+[node name="Name" type="Label" parent="MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/MarginContainer/HBoxContainer"]
+offset_left = 950.0
+offset_right = 1870.0
+offset_bottom = 150.0
+size_flags_horizontal = 3
+size_flags_vertical = 5
+text = "John Carmack"
+uppercase = true
+
+[node name="MarginContainer2" type="MarginContainer" parent="MarginContainer/VBoxContainer/MarginContainer/VBoxContainer"]
+offset_top = 154.0
+offset_right = 1870.0
+offset_bottom = 304.0
+grow_horizontal = 0
+grow_vertical = 0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/MarginContainer2"]
+offset_right = 1870.0
+offset_bottom = 150.0
+theme_override_constants/separation = 30
+
+[node name="Artist" type="Label" parent="MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer"]
+offset_right = 920.0
+offset_bottom = 150.0
+size_flags_horizontal = 3
+size_flags_vertical = 5
+text = "credits.artist"
+horizontal_alignment = 2
+uppercase = true
+
+[node name="Name" type="Label" parent="MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer"]
+offset_left = 950.0
+offset_right = 1870.0
+offset_bottom = 150.0
+size_flags_horizontal = 3
+size_flags_vertical = 5
+text = "Marc Brunet"
+uppercase = true
+
+[node name="MarginContainer3" type="MarginContainer" parent="MarginContainer/VBoxContainer/MarginContainer/VBoxContainer"]
+offset_top = 308.0
+offset_right = 1870.0
+offset_bottom = 458.0
+grow_horizontal = 0
+grow_vertical = 0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/MarginContainer3"]
+offset_right = 1870.0
+offset_bottom = 150.0
+theme_override_constants/separation = 30
+
+[node name="GameDesigner" type="Label" parent="MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/MarginContainer3/HBoxContainer"]
+offset_right = 920.0
+offset_bottom = 150.0
+size_flags_horizontal = 3
+size_flags_vertical = 5
+text = "credits.gameDesigner"
+horizontal_alignment = 2
+uppercase = true
+
+[node name="Name" type="Label" parent="MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/MarginContainer3/HBoxContainer"]
+offset_left = 950.0
+offset_right = 1870.0
+offset_bottom = 150.0
+size_flags_horizontal = 3
+size_flags_vertical = 5
+text = "Hideo Kojima"
+uppercase = true
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Button" to="MarginContainer/VBoxContainer/Button" method="_on_button_pressed"]
