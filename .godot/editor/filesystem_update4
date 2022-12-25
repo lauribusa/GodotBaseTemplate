@@ -1,8 +1,0 @@
-res://default_bus_layout.tres
-res://fps_display.tscn
-res://MainMenu.tscn
-res://fps_label_settings.tres
-res://SettingsWindow.tscn
-res://localization/locales.en.translation
-res://localization/locales.fr.translation
-res://localization/locales.es.translation
