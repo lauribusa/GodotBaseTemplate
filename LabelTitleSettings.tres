@@ -1,0 +1,8 @@
+[gd_resource type="LabelSettings" load_steps=2 format=3 uid="uid://v3j1qlr14v02"]
+
+[ext_resource type="FontFile" uid="uid://cmj42ewcmaqhs" path="res://Assets/Font/kenvector_future.ttf" id="1_qw5p0"]
+
+[resource]
+font = ExtResource("1_qw5p0")
+font_size = 48
+shadow_offset = Vector2(0, 0)

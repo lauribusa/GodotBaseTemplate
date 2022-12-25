@@ -1,0 +1,487 @@
+[gd_scene load_steps=2 format=3 uid="uid://b3e552bnsn42q"]
+
+[ext_resource type="Script" path="res://SettingsMenu/SettingsHandler.cs" id="1_u1fhb"]
+
+[node name="SettingsWindow" type="Window" node_paths=PackedStringArray("_languageOption", "_keyboardModeOption", "_displayModeOption", "_screenResolutionOption", "_vsyncOption", "_displayFpsOption", "_maxFpsOption", "_brightnessOption", "_maxFpsValueLabel", "_brightnessValueLabel", "_mainVolumeOption", "_musicVolumeOption", "_sfxVolumeOption", "_mainVolumeValueLabel", "_musicVolumeValueLabel", "_sfxVolumeValueLabel")]
+title = "start.settings"
+size = Vector2i(1327, 700)
+wrap_controls = true
+transient = true
+exclusive = true
+popup_window = true
+max_size = Vector2i(4090, 4090)
+script = ExtResource("1_u1fhb")
+tabContainerPath = NodePath("TabContainer")
+_languageOption = NodePath("TabContainer/Game/GridContainer/LanguageOption")
+_keyboardModeOption = NodePath("TabContainer/Game/GridContainer/KeyboardModeOption")
+_displayModeOption = NodePath("TabContainer/Video/GridContainer/DisplayModeOption")
+_screenResolutionOption = NodePath("TabContainer/Video/GridContainer/ScreenResolutionOption")
+_vsyncOption = NodePath("TabContainer/Video/GridContainer/VsyncOption")
+_displayFpsOption = NodePath("TabContainer/Video/GridContainer/DisplayFPSOption")
+_maxFpsOption = NodePath("TabContainer/Video/GridContainer/MaxFPS/MaxFPSSlider")
+_brightnessOption = NodePath("TabContainer/Video/GridContainer/Brightness/BrightnessSlider")
+_maxFpsValueLabel = NodePath("TabContainer/Video/GridContainer/MaxFPS/MaxFPSValueLabel")
+_brightnessValueLabel = NodePath("TabContainer/Video/GridContainer/Brightness/BrightnessValueLabel")
+_mainVolumeOption = NodePath("TabContainer/Audio/GridContainer/MainVolume/MainVolumeSlider")
+_musicVolumeOption = NodePath("TabContainer/Audio/GridContainer/MusicVolume/MusicVolumeSlider")
+_sfxVolumeOption = NodePath("TabContainer/Audio/GridContainer/SFXVolume/SFXVolumeSlider")
+_mainVolumeValueLabel = NodePath("TabContainer/Audio/GridContainer/MainVolume/MainVolumeValueLabel")
+_musicVolumeValueLabel = NodePath("TabContainer/Audio/GridContainer/MusicVolume/MusicVolumeValueLabel")
+_sfxVolumeValueLabel = NodePath("TabContainer/Audio/GridContainer/SFXVolume/SFXVolumeValueLabel")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0.0509804, 0.0431373, 0.0431373, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="TabContainer" type="TabContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+clip_tabs = false
+metadata/_edit_use_anchors_ = true
+
+[node name="Game" type="MarginContainer" parent="TabContainer"]
+visible = false
+layout_mode = 2
+theme_override_constants/margin_left = 100
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 100
+theme_override_constants/margin_bottom = 50
+
+[node name="GridContainer" type="GridContainer" parent="TabContainer/Game"]
+layout_mode = 2
+theme_override_constants/v_separation = 20
+columns = 2
+
+[node name="LanguageLabel" type="Label" parent="TabContainer/Game/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "settings.language"
+
+[node name="LanguageOption" type="OptionButton" parent="TabContainer/Game/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+item_count = 2
+selected = 0
+popup/item_0/text = "settings.en"
+popup/item_0/id = 0
+popup/item_1/text = "settings.fr"
+popup/item_1/id = 1
+
+[node name="KeyboardModeLabel" type="Label" parent="TabContainer/Game/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "settings.keyboardMode"
+
+[node name="KeyboardModeOption" type="OptionButton" parent="TabContainer/Game/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+item_count = 2
+selected = 0
+popup/item_0/text = "settings.WASD"
+popup/item_0/id = 0
+popup/item_1/text = "settings.ZQSD"
+popup/item_1/id = 1
+
+[node name="CloseButtonContainer" type="MarginContainer" parent="TabContainer/Game"]
+layout_mode = 2
+size_flags_vertical = 8
+theme_override_constants/margin_left = 500
+theme_override_constants/margin_right = 500
+
+[node name="CloseButton" type="Button" parent="TabContainer/Game/CloseButtonContainer"]
+layout_mode = 2
+size_flags_vertical = 8
+text = "_common.close"
+
+[node name="Video" type="MarginContainer" parent="TabContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 100
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 100
+theme_override_constants/margin_bottom = 50
+
+[node name="GridContainer" type="GridContainer" parent="TabContainer/Video"]
+layout_mode = 2
+theme_override_constants/v_separation = 20
+columns = 2
+
+[node name="DisplayModeLabel" type="Label" parent="TabContainer/Video/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "settings.displayMode"
+
+[node name="DisplayModeOption" type="OptionButton" parent="TabContainer/Video/GridContainer"]
+layout_mode = 2
+item_count = 2
+selected = 0
+popup/item_0/text = "settings.fullscreen"
+popup/item_0/id = 0
+popup/item_1/text = "settings.windowed"
+popup/item_1/id = 1
+
+[node name="ScreenResolutionLabel" type="Label" parent="TabContainer/Video/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "settings.screenResolution"
+
+[node name="ScreenResolutionOption" type="OptionButton" parent="TabContainer/Video/GridContainer"]
+layout_mode = 2
+item_count = 5
+selected = 2
+popup/item_0/text = "3840x2160"
+popup/item_0/id = 0
+popup/item_1/text = "2560x1440"
+popup/item_1/id = 1
+popup/item_2/text = "1920x1080"
+popup/item_2/id = 2
+popup/item_3/text = "1280x720"
+popup/item_3/id = 3
+popup/item_4/text = "654x480"
+popup/item_4/id = 4
+
+[node name="VsyncLabel" type="Label" parent="TabContainer/Video/GridContainer"]
+layout_mode = 2
+text = "settings.vsync"
+
+[node name="VsyncOption" type="CheckButton" parent="TabContainer/Video/GridContainer"]
+layout_mode = 2
+
+[node name="DisplayFPSLabel" type="Label" parent="TabContainer/Video/GridContainer"]
+layout_mode = 2
+text = "settings.displayFps"
+
+[node name="DisplayFPSOption" type="CheckButton" parent="TabContainer/Video/GridContainer"]
+layout_mode = 2
+
+[node name="MaxFPSLabel" type="Label" parent="TabContainer/Video/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "settings.maxFps"
+
+[node name="MaxFPS" type="HBoxContainer" parent="TabContainer/Video/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="MaxFPSSlider" type="HSlider" parent="TabContainer/Video/GridContainer/MaxFPS"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+max_value = 144.0
+step = 30.0
+value = 100.0
+scrollable = false
+
+[node name="MinValue" type="Label" parent="TabContainer/Video/GridContainer/MaxFPS/MaxFPSSlider"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = -100.0
+offset_top = -13.0
+offset_right = -21.0
+offset_bottom = 13.0
+grow_vertical = 2
+text = "0"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="MaxValue" type="Label" parent="TabContainer/Video/GridContainer/MaxFPS/MaxFPSSlider"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = 2.0
+offset_top = -13.0
+offset_right = 30.0
+offset_bottom = 13.0
+grow_horizontal = 0
+grow_vertical = 2
+text = "100"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="MaxFPSValueLabel" type="Label" parent="TabContainer/Video/GridContainer/MaxFPS"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "_common.max"
+horizontal_alignment = 1
+
+[node name="BrightnessLabel" type="Label" parent="TabContainer/Video/GridContainer"]
+layout_mode = 2
+text = "settings.brightness"
+
+[node name="Brightness" type="HBoxContainer" parent="TabContainer/Video/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="BrightnessSlider" type="HSlider" parent="TabContainer/Video/GridContainer/Brightness"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+max_value = 2.0
+step = 0.1
+value = 1.0
+scrollable = false
+
+[node name="MinValue" type="Label" parent="TabContainer/Video/GridContainer/Brightness/BrightnessSlider"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = -30.0
+offset_top = -13.0
+offset_right = -11.0
+offset_bottom = 13.0
+grow_vertical = 2
+text = "0"
+vertical_alignment = 1
+
+[node name="MaxValue" type="Label" parent="TabContainer/Video/GridContainer/Brightness/BrightnessSlider"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = 2.0
+offset_top = -13.0
+offset_right = 30.0
+offset_bottom = 13.0
+grow_horizontal = 0
+grow_vertical = 2
+text = "100"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="BrightnessValueLabel" type="Label" parent="TabContainer/Video/GridContainer/Brightness"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "_common.max"
+horizontal_alignment = 1
+
+[node name="CloseButtonContainer" type="MarginContainer" parent="TabContainer/Video"]
+layout_mode = 2
+size_flags_vertical = 8
+theme_override_constants/margin_left = 500
+theme_override_constants/margin_right = 500
+
+[node name="CloseButton" type="Button" parent="TabContainer/Video/CloseButtonContainer"]
+layout_mode = 2
+size_flags_vertical = 8
+text = "_common.close"
+
+[node name="Audio" type="MarginContainer" parent="TabContainer"]
+visible = false
+layout_mode = 2
+theme_override_constants/margin_left = 100
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 100
+theme_override_constants/margin_bottom = 50
+
+[node name="GridContainer" type="GridContainer" parent="TabContainer/Audio"]
+layout_mode = 2
+theme_override_constants/v_separation = 20
+columns = 2
+
+[node name="MainVolumeLabel" type="Label" parent="TabContainer/Audio/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "settings.mainVolume"
+
+[node name="MainVolume" type="HBoxContainer" parent="TabContainer/Audio/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="MainVolumeSlider" type="HSlider" parent="TabContainer/Audio/GridContainer/MainVolume"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+min_value = -50.0
+max_value = 0.0
+value = -10.0
+scrollable = false
+
+[node name="MinValue" type="Label" parent="TabContainer/Audio/GridContainer/MainVolume/MainVolumeSlider"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = -30.0
+offset_top = -13.0
+offset_right = -11.0
+offset_bottom = 13.0
+grow_vertical = 2
+text = "0"
+vertical_alignment = 1
+
+[node name="MaxValue" type="Label" parent="TabContainer/Audio/GridContainer/MainVolume/MainVolumeSlider"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = 2.0
+offset_top = -13.0
+offset_right = 30.0
+offset_bottom = 13.0
+grow_horizontal = 0
+grow_vertical = 2
+text = "100"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="MainVolumeValueLabel" type="Label" parent="TabContainer/Audio/GridContainer/MainVolume"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "_common.max"
+horizontal_alignment = 1
+
+[node name="MusicVolumeLabel" type="Label" parent="TabContainer/Audio/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "settings.musicVolume"
+
+[node name="MusicVolume" type="HBoxContainer" parent="TabContainer/Audio/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="MusicVolumeSlider" type="HSlider" parent="TabContainer/Audio/GridContainer/MusicVolume"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+min_value = -50.0
+max_value = 0.0
+value = -10.0
+scrollable = false
+
+[node name="MinValue" type="Label" parent="TabContainer/Audio/GridContainer/MusicVolume/MusicVolumeSlider"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = -30.0
+offset_top = -13.0
+offset_right = -11.0
+offset_bottom = 13.0
+grow_vertical = 2
+text = "0"
+vertical_alignment = 1
+
+[node name="MaxValue" type="Label" parent="TabContainer/Audio/GridContainer/MusicVolume/MusicVolumeSlider"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = 2.0
+offset_top = -13.0
+offset_right = 30.0
+offset_bottom = 13.0
+grow_horizontal = 0
+grow_vertical = 2
+text = "100"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="MusicVolumeValueLabel" type="Label" parent="TabContainer/Audio/GridContainer/MusicVolume"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "_common.max"
+horizontal_alignment = 1
+
+[node name="SFXVolumeLabel" type="Label" parent="TabContainer/Audio/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "settings.sfxVolume"
+
+[node name="SFXVolume" type="HBoxContainer" parent="TabContainer/Audio/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="SFXVolumeSlider" type="HSlider" parent="TabContainer/Audio/GridContainer/SFXVolume"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+min_value = -50.0
+max_value = 0.0
+value = -10.0
+scrollable = false
+
+[node name="MinValue" type="Label" parent="TabContainer/Audio/GridContainer/SFXVolume/SFXVolumeSlider"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = -30.0
+offset_top = -13.0
+offset_right = -11.0
+offset_bottom = 13.0
+grow_vertical = 2
+text = "0"
+vertical_alignment = 1
+
+[node name="MaxValue" type="Label" parent="TabContainer/Audio/GridContainer/SFXVolume/SFXVolumeSlider"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = 2.0
+offset_top = -13.0
+offset_right = 30.0
+offset_bottom = 13.0
+grow_horizontal = 0
+grow_vertical = 2
+text = "100"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="SFXVolumeValueLabel" type="Label" parent="TabContainer/Audio/GridContainer/SFXVolume"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "_common.max"
+horizontal_alignment = 1
+
+[node name="CloseButtonContainer" type="MarginContainer" parent="TabContainer/Audio"]
+layout_mode = 2
+size_flags_vertical = 8
+theme_override_constants/margin_left = 500
+theme_override_constants/margin_right = 500
+
+[node name="CloseButton" type="Button" parent="TabContainer/Audio/CloseButtonContainer"]
+layout_mode = 2
+size_flags_vertical = 8
+text = "_common.close"
+
+[connection signal="close_requested" from="." to="." method="_on_settings_window_close_requested"]
+[connection signal="item_selected" from="TabContainer/Game/GridContainer/LanguageOption" to="." method="_on_language_option_item_selected"]
+[connection signal="item_selected" from="TabContainer/Game/GridContainer/KeyboardModeOption" to="." method="_on_keyboard_mode_option_item_selected"]
+[connection signal="pressed" from="TabContainer/Game/CloseButtonContainer/CloseButton" to="." method="_on_settings_window_close_requested"]
+[connection signal="item_selected" from="TabContainer/Video/GridContainer/DisplayModeOption" to="." method="_on_display_mode_option_item_selected"]
+[connection signal="item_selected" from="TabContainer/Video/GridContainer/ScreenResolutionOption" to="." method="_on_screen_resolution_option_item_selected"]
+[connection signal="toggled" from="TabContainer/Video/GridContainer/VsyncOption" to="." method="_on_vsync_option_toggled"]
+[connection signal="toggled" from="TabContainer/Video/GridContainer/DisplayFPSOption" to="." method="_on_display_fps_option_toggled"]
+[connection signal="drag_ended" from="TabContainer/Video/GridContainer/MaxFPS/MaxFPSSlider" to="." method="_on_maxfps_value_changed"]
+[connection signal="value_changed" from="TabContainer/Video/GridContainer/Brightness/BrightnessSlider" to="." method="_on_brightness_value_changed"]
+[connection signal="pressed" from="TabContainer/Video/CloseButtonContainer/CloseButton" to="." method="_on_settings_window_close_requested"]
+[connection signal="value_changed" from="TabContainer/Audio/GridContainer/MainVolume/MainVolumeSlider" to="." method="_on_mainVolume_value_changed"]
+[connection signal="value_changed" from="TabContainer/Audio/GridContainer/MusicVolume/MusicVolumeSlider" to="." method="_on_musicVolume_value_changed"]
+[connection signal="value_changed" from="TabContainer/Audio/GridContainer/SFXVolume/SFXVolumeSlider" to="." method="_on_sfxVolume_value_changed"]
+[connection signal="pressed" from="TabContainer/Audio/CloseButtonContainer/CloseButton" to="." method="_on_settings_window_close_requested"]
