@@ -52,7 +52,6 @@ clip_tabs = false
 metadata/_edit_use_anchors_ = true
 
 [node name="Game" type="MarginContainer" parent="TabContainer"]
-visible = false
 layout_mode = 2
 theme_override_constants/margin_left = 100
 theme_override_constants/margin_top = 50
@@ -106,6 +105,7 @@ size_flags_vertical = 8
 text = "_common.close"
 
 [node name="Video" type="MarginContainer" parent="TabContainer"]
+visible = false
 layout_mode = 2
 theme_override_constants/margin_left = 100
 theme_override_constants/margin_top = 50
@@ -180,7 +180,7 @@ size_flags_horizontal = 3
 size_flags_vertical = 1
 max_value = 144.0
 step = 30.0
-value = 100.0
+value = 90.0
 scrollable = false
 
 [node name="MinValue" type="Label" parent="TabContainer/Video/GridContainer/MaxFPS/MaxFPSSlider"]

@@ -29,7 +29,6 @@ settingsMenuPath = NodePath("../SettingsWindow")
 nodePath = NodePath("../ConfirmationDialog")
 
 [node name="ColorRect" type="ColorRect" parent="."]
-layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -38,7 +37,6 @@ grow_vertical = 2
 color = Color(0.164706, 0.129412, 0.168627, 1)
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
-layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -50,10 +48,14 @@ theme_override_constants/margin_right = 25
 theme_override_constants/margin_bottom = 100
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
-layout_mode = 2
+offset_left = 25.0
+offset_top = 25.0
+offset_right = 1895.0
+offset_bottom = 980.0
 
 [node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
-layout_mode = 2
+offset_right = 1870.0
+offset_bottom = 475.0
 size_flags_vertical = 3
 text = "Title"
 label_settings = SubResource("LabelSettings_fbvua")
@@ -62,48 +64,63 @@ vertical_alignment = 1
 uppercase = true
 
 [node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer"]
-layout_mode = 2
+offset_top = 479.0
+offset_right = 1870.0
+offset_bottom = 955.0
 size_flags_vertical = 3
 theme_override_constants/margin_left = 500
 theme_override_constants/margin_right = 500
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/MarginContainer"]
-layout_mode = 2
+offset_left = 500.0
+offset_right = 1370.0
+offset_bottom = 476.0
 theme_override_constants/separation = 6
 
 [node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/MarginContainer/VBoxContainer"]
-layout_mode = 2
+offset_right = 870.0
+offset_bottom = 114.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="Play" type="Button" parent="MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/MarginContainer"]
-layout_mode = 2
+offset_right = 870.0
+offset_bottom = 114.0
 text = "start.play"
 
 [node name="MarginContainer2" type="MarginContainer" parent="MarginContainer/VBoxContainer/MarginContainer/VBoxContainer"]
-layout_mode = 2
+offset_top = 120.0
+offset_right = 870.0
+offset_bottom = 235.0
 size_flags_vertical = 3
 
 [node name="Settings" type="Button" parent="MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/MarginContainer2"]
-layout_mode = 2
+offset_right = 870.0
+offset_bottom = 115.0
 text = "start.settings"
 
 [node name="MarginContainer3" type="MarginContainer" parent="MarginContainer/VBoxContainer/MarginContainer/VBoxContainer"]
-layout_mode = 2
+offset_top = 241.0
+offset_right = 870.0
+offset_bottom = 355.0
 size_flags_vertical = 3
 
 [node name="Credits" type="Button" parent="MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/MarginContainer3"]
-layout_mode = 2
+offset_right = 870.0
+offset_bottom = 114.0
 text = "start.credits"
 script = ExtResource("4")
 scene = ExtResource("5")
 
 [node name="MarginContainer4" type="MarginContainer" parent="MarginContainer/VBoxContainer/MarginContainer/VBoxContainer"]
-layout_mode = 2
+offset_top = 361.0
+offset_right = 870.0
+offset_bottom = 476.0
 size_flags_vertical = 3
 
 [node name="Quit" type="Button" parent="MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/MarginContainer4"]
-layout_mode = 2
+offset_right = 870.0
+offset_bottom = 115.0
 text = "start.quit"
 
 [node name="ConfirmationDialog" type="ConfirmationDialog" parent="."]
