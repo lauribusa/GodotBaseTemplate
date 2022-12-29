@@ -18,3 +18,4 @@ mono_crash.*.json
 
 # Project-specific ignores
 Config/settings.cfg
+Config/delete.me
