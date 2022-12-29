@@ -1,6 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://bn63urs8js7qf"]
+[gd_scene load_steps=3 format=3 uid="uid://ca2o1enc2acdg"]
 
-[ext_resource type="Script" path="res://CreditsMenu/BackButton.cs" id="1_q8gti"]
+[ext_resource type="Script" path="res://Scripts/CreditsMenu/BackButton.cs" id="1_q8gti"]
 [ext_resource type="LabelSettings" uid="uid://v3j1qlr14v02" path="res://LabelTitleSettings.tres" id="1_qc8uc"]
 
 [node name="Control" type="Control"]
@@ -39,8 +39,9 @@ grow_horizontal = 0
 grow_vertical = 0
 
 [node name="Button" type="Button" parent="MarginContainer/VBoxContainer"]
-offset_right = 144.0
-offset_bottom = 31.0
+custom_minimum_size = Vector2(150, 40)
+offset_right = 150.0
+offset_bottom = 40.0
 size_flags_horizontal = 0
 size_flags_vertical = 0
 text = "_common.goBack"
@@ -48,9 +49,9 @@ script = ExtResource("1_q8gti")
 
 [node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
 offset_left = 807.0
-offset_top = 35.0
+offset_top = 44.0
 offset_right = 1063.0
-offset_bottom = 493.0
+offset_bottom = 497.0
 size_flags_horizontal = 6
 size_flags_vertical = 3
 text = "Credits"
@@ -60,7 +61,7 @@ vertical_alignment = 1
 uppercase = true
 
 [node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer"]
-offset_top = 497.0
+offset_top = 501.0
 offset_right = 1870.0
 offset_bottom = 955.0
 size_flags_horizontal = 3
@@ -68,13 +69,13 @@ size_flags_vertical = 3
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/MarginContainer"]
 offset_right = 1870.0
-offset_bottom = 458.0
+offset_bottom = 454.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/MarginContainer/VBoxContainer"]
 offset_right = 1870.0
-offset_bottom = 150.0
+offset_bottom = 148.0
 grow_horizontal = 0
 grow_vertical = 0
 size_flags_horizontal = 3
@@ -82,12 +83,12 @@ size_flags_vertical = 3
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/MarginContainer"]
 offset_right = 1870.0
-offset_bottom = 150.0
+offset_bottom = 148.0
 theme_override_constants/separation = 30
 
 [node name="Programmer" type="Label" parent="MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/MarginContainer/HBoxContainer"]
 offset_right = 920.0
-offset_bottom = 150.0
+offset_bottom = 148.0
 size_flags_horizontal = 3
 size_flags_vertical = 5
 text = "credits.programmer"
@@ -97,16 +98,16 @@ uppercase = true
 [node name="Name" type="Label" parent="MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/MarginContainer/HBoxContainer"]
 offset_left = 950.0
 offset_right = 1870.0
-offset_bottom = 150.0
+offset_bottom = 148.0
 size_flags_horizontal = 3
 size_flags_vertical = 5
 text = "John Carmack"
 uppercase = true
 
 [node name="MarginContainer2" type="MarginContainer" parent="MarginContainer/VBoxContainer/MarginContainer/VBoxContainer"]
-offset_top = 154.0
+offset_top = 152.0
 offset_right = 1870.0
-offset_bottom = 304.0
+offset_bottom = 301.0
 grow_horizontal = 0
 grow_vertical = 0
 size_flags_horizontal = 3
@@ -114,12 +115,12 @@ size_flags_vertical = 3
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/MarginContainer2"]
 offset_right = 1870.0
-offset_bottom = 150.0
+offset_bottom = 149.0
 theme_override_constants/separation = 30
 
 [node name="Artist" type="Label" parent="MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer"]
 offset_right = 920.0
-offset_bottom = 150.0
+offset_bottom = 149.0
 size_flags_horizontal = 3
 size_flags_vertical = 5
 text = "credits.artist"
@@ -129,16 +130,16 @@ uppercase = true
 [node name="Name" type="Label" parent="MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/MarginContainer2/HBoxContainer"]
 offset_left = 950.0
 offset_right = 1870.0
-offset_bottom = 150.0
+offset_bottom = 149.0
 size_flags_horizontal = 3
 size_flags_vertical = 5
 text = "Marc Brunet"
 uppercase = true
 
 [node name="MarginContainer3" type="MarginContainer" parent="MarginContainer/VBoxContainer/MarginContainer/VBoxContainer"]
-offset_top = 308.0
+offset_top = 305.0
 offset_right = 1870.0
-offset_bottom = 458.0
+offset_bottom = 454.0
 grow_horizontal = 0
 grow_vertical = 0
 size_flags_horizontal = 3
@@ -146,12 +147,12 @@ size_flags_vertical = 3
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/MarginContainer3"]
 offset_right = 1870.0
-offset_bottom = 150.0
+offset_bottom = 149.0
 theme_override_constants/separation = 30
 
 [node name="GameDesigner" type="Label" parent="MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/MarginContainer3/HBoxContainer"]
 offset_right = 920.0
-offset_bottom = 150.0
+offset_bottom = 149.0
 size_flags_horizontal = 3
 size_flags_vertical = 5
 text = "credits.gameDesigner"
@@ -161,7 +162,7 @@ uppercase = true
 [node name="Name" type="Label" parent="MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/MarginContainer3/HBoxContainer"]
 offset_left = 950.0
 offset_right = 1870.0
-offset_bottom = 150.0
+offset_bottom = 149.0
 size_flags_horizontal = 3
 size_flags_vertical = 5
 text = "Hideo Kojima"

@@ -1,17 +1,15 @@
-[gd_scene load_steps=11 format=3 uid="uid://r741qbt60bky"]
+[gd_scene load_steps=9 format=3 uid="uid://blrsosuq5qswd"]
 
-[ext_resource type="Script" path="res://MainMenu/MainMenu.cs" id="1"]
-[ext_resource type="Script" path="res://General/Managers.cs" id="1_11lmq"]
-[ext_resource type="Script" path="res://MainMenu/MainMenuConfirmationDialog.cs" id="3"]
-[ext_resource type="FontFile" uid="uid://cmj42ewcmaqhs" path="res://Assets/Font/kenvector_future.ttf" id="3_wiaml"]
-[ext_resource type="Script" path="res://MainMenu/Credits.cs" id="4"]
-[ext_resource type="PackedScene" uid="uid://bn63urs8js7qf" path="res://Credits.tscn" id="5"]
-[ext_resource type="PackedScene" uid="uid://b3e552bnsn42q" path="res://SettingsWindow.tscn" id="6_ikchn"]
-[ext_resource type="PackedScene" uid="uid://b8s08ahnokggs" path="res://music_player.tscn" id="8_kyncj"]
-[ext_resource type="AudioStream" uid="uid://c5pjpeulcndbq" path="res://Audio/Lukrembo-Onion.mp3" id="9_mohhr"]
+[ext_resource type="Script" path="res://Scripts/MainMenu/MainMenu.cs" id="1_r81h0"]
+[ext_resource type="FontFile" uid="uid://cmj42ewcmaqhs" path="res://Assets/Font/kenvector_future.ttf" id="2_uy8b7"]
+[ext_resource type="Script" path="res://Scripts/MainMenu/Credits.cs" id="3_yhbvx"]
+[ext_resource type="PackedScene" uid="uid://ca2o1enc2acdg" path="res://Scenes/Credits.tscn" id="4_5gkrw"]
+[ext_resource type="Script" path="res://Scripts/MainMenu/MainMenuConfirmationDialog.cs" id="5_5gcp7"]
+[ext_resource type="PackedScene" uid="uid://brm5ibexcuop2" path="res://Scenes/Prefabs/SettingsWindow.tscn" id="6_pvdu3"]
+[ext_resource type="PackedScene" uid="uid://b8s08ahnokggs" path="res://Scenes/Prefabs/music_player.tscn" id="7_mow5h"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_fbvua"]
-font = ExtResource("3_wiaml")
+font = ExtResource("2_uy8b7")
 font_size = 48
 
 [node name="Control" type="Control"]
@@ -21,14 +19,14 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_11lmq")
 
 [node name="DialogController" type="Node2D" parent="."]
-script = ExtResource("1")
+script = ExtResource("1_r81h0")
 settingsMenuPath = NodePath("../SettingsWindow")
 nodePath = NodePath("../ConfirmationDialog")
 
 [node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -37,6 +35,7 @@ grow_vertical = 2
 color = Color(0.164706, 0.129412, 0.168627, 1)
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -48,14 +47,10 @@ theme_override_constants/margin_right = 25
 theme_override_constants/margin_bottom = 100
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
-offset_left = 25.0
-offset_top = 25.0
-offset_right = 1895.0
-offset_bottom = 980.0
+layout_mode = 2
 
 [node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
-offset_right = 1870.0
-offset_bottom = 475.0
+layout_mode = 2
 size_flags_vertical = 3
 text = "Title"
 label_settings = SubResource("LabelSettings_fbvua")
@@ -64,63 +59,48 @@ vertical_alignment = 1
 uppercase = true
 
 [node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer"]
-offset_top = 479.0
-offset_right = 1870.0
-offset_bottom = 955.0
+layout_mode = 2
 size_flags_vertical = 3
 theme_override_constants/margin_left = 500
 theme_override_constants/margin_right = 500
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/MarginContainer"]
-offset_left = 500.0
-offset_right = 1370.0
-offset_bottom = 476.0
+layout_mode = 2
 theme_override_constants/separation = 6
 
 [node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/MarginContainer/VBoxContainer"]
-offset_right = 870.0
-offset_bottom = 114.0
+layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="Play" type="Button" parent="MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/MarginContainer"]
-offset_right = 870.0
-offset_bottom = 114.0
+layout_mode = 2
 text = "start.play"
 
 [node name="MarginContainer2" type="MarginContainer" parent="MarginContainer/VBoxContainer/MarginContainer/VBoxContainer"]
-offset_top = 120.0
-offset_right = 870.0
-offset_bottom = 235.0
+layout_mode = 2
 size_flags_vertical = 3
 
 [node name="Settings" type="Button" parent="MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/MarginContainer2"]
-offset_right = 870.0
-offset_bottom = 115.0
+layout_mode = 2
 text = "start.settings"
 
 [node name="MarginContainer3" type="MarginContainer" parent="MarginContainer/VBoxContainer/MarginContainer/VBoxContainer"]
-offset_top = 241.0
-offset_right = 870.0
-offset_bottom = 355.0
+layout_mode = 2
 size_flags_vertical = 3
 
 [node name="Credits" type="Button" parent="MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/MarginContainer3"]
-offset_right = 870.0
-offset_bottom = 114.0
+layout_mode = 2
 text = "start.credits"
-script = ExtResource("4")
-scene = ExtResource("5")
+script = ExtResource("3_yhbvx")
+scene = ExtResource("4_5gkrw")
 
 [node name="MarginContainer4" type="MarginContainer" parent="MarginContainer/VBoxContainer/MarginContainer/VBoxContainer"]
-offset_top = 361.0
-offset_right = 870.0
-offset_bottom = 476.0
+layout_mode = 2
 size_flags_vertical = 3
 
 [node name="Quit" type="Button" parent="MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/MarginContainer4"]
-offset_right = 870.0
-offset_bottom = 115.0
+layout_mode = 2
 text = "start.quit"
 
 [node name="ConfirmationDialog" type="ConfirmationDialog" parent="."]
@@ -129,14 +109,11 @@ size = Vector2i(260, 100)
 ok_button_text = "_common.ok"
 dialog_text = "start.onQuit"
 cancel_button_text = "_common.cancel"
-script = ExtResource("3")
+script = ExtResource("5_5gcp7")
 
-[node name="SettingsWindow" parent="." instance=ExtResource("6_ikchn")]
-visible = false
+[node name="MusicPlayer" parent="." instance=ExtResource("7_mow5h")]
 
-[node name="MusicPlayer" parent="." instance=ExtResource("8_kyncj")]
-stream = ExtResource("9_mohhr")
-autoplay = true
+[node name="SettingsWindow" parent="." instance=ExtResource("6_pvdu3")]
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/MarginContainer2/Settings" to="DialogController" method="_on_Settings_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/MarginContainer3/Credits" to="MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/MarginContainer3/Credits" method="_on_Credits_pressed"]

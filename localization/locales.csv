@@ -33,3 +33,6 @@ settings.brightness, Brightness, Eclairage, Brightness
 settings.mainVolume, Main Volume, Volume principal, main volume
 settings.musicVolume, Music Volume, Volume de la musique, Music Volume
 settings.sfxVolume, SFX Volume, Volume des effets sonores, SFX volume
+credits.artist, Artist, Artiste, Artist
+credits.programmer, Programmer, Programmeur, Programmer
+credits.gameDesigner, Game Designer, Game Designer, Game Designer

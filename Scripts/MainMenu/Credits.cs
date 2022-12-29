@@ -12,5 +12,4 @@ namespace MainMenu
             GetTree().ChangeSceneToPacked(scene);
         }
     }
-
 }

@@ -2,11 +2,8 @@ using Godot;
 using System;
 namespace MainMenu
 {
-	public partial class MainMenu : Node, IMainMenu
+	public partial class MainMenu : Node
 	{
-		// Declare member variables here. Examples:
-		// private int a = 2;
-		// private string b = "text";
 		[Export]
 		public NodePath settingsMenuPath;
 		private Window settingsPopup;
@@ -14,7 +11,6 @@ namespace MainMenu
 		public NodePath nodePath;
 		private ConfirmationDialog popupMenu;
 
-		// Called when the node enters the scene tree for the first time.
 		public override void _Ready()
 		{
 			popupMenu = GetNode(nodePath) as ConfirmationDialog;

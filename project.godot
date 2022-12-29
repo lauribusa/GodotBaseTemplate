@@ -12,15 +12,15 @@ config_version=5
 
 config/name="Base Game"
 config/description="A base game with basic settings to be used as a lightweight template. Includes user settings and simple localization."
-run/main_scene="res://MainMenu.tscn"
+run/main_scene="res://Scenes/MainMenu.tscn"
 config/features=PackedStringArray("4.0", "C#")
 boot_splash/image="res://icon.png"
 config/icon="res://icon.png"
 
 [autoload]
 
-FpsDisplay="*res://fps_display.tscn"
-MusicPlayer="*res://music_player.tscn"
+FpsDisplay="*res://Scenes/Prefabs/fps_display.tscn"
+MusicPlayer="*res://Scenes/Prefabs/music_player.tscn"
 
 [display]
 

@@ -88,13 +88,17 @@ namespace Settings
 			loadResponse = _config.Load(_savePath);
 			if(loadResponse != Error.Ok)
 			{
-
+				CreateDefaultSettings();
 			}
-			InitFromConfigFile();
+
 			tabContainer = GetNode(tabContainerPath) as TabContainer;
 			tabContainer.SetTabTitle(0, "settings.game");
 			tabContainer.SetTabTitle(1, "settings.video");
 			tabContainer.SetTabTitle(2, "settings.audio");
+
+			_fpsDisplayLabel = GetNode("/root/FpsDisplay") as Label;
+
+			InitFromConfigFile();
 			GetAndSetNodes();
 		}
 		#endregion
@@ -183,37 +187,67 @@ namespace Settings
 
 			var keyboardValue = (int)GetConfigValue("Keyboard");
 			_keyboardModeOption.Select(keyboardValue);
+			OnKeyboardModeChanged((KeyboardMode)keyboardValue);
 
 			var displayModeValue = (int)GetConfigValue("Display");
 			_displayModeOption.Select(displayModeValue);
+			OnDisplayModeChanged((DisplayMode)displayModeValue);
 
 			var resolutionValue = (int)GetConfigValue("Resolution");
 			_screenResolutionOption.Select(resolutionValue);
+			OnScreenResolutionChanged((DisplayResolution)resolutionValue);
 
 			var vsyncValue = (bool)GetConfigValue("Vsync");
-			_vsyncOption.ToggleMode = vsyncValue;
+			_vsyncOption.ButtonPressed = vsyncValue;
+			OnVsyncChanged(vsyncValue);
 
 			var displayFpsValue = (bool)GetConfigValue("DisplayFPS");
-			_displayFpsOption.ToggleMode = displayFpsValue;
+			_displayFpsOption.ButtonPressed = displayFpsValue;
+			OnDisplayFpsChanged(displayFpsValue);
 
 			var maxFpsValue = (int)GetConfigValue("MaxFPS");
 			_maxFpsOption.Value= maxFpsValue;
+			OnMaxFpsChanged(maxFpsValue);
 
 			var brightnessValue = (float)GetConfigValue("Brightness");
 			_brightnessOption.Value= brightnessValue;
+			OnBrightnessChanged(brightnessValue);
 
 			var mainVolumeValue = (float)GetConfigValue("MainVolume");
 			_mainVolumeOption.Value= mainVolumeValue;
+			OnMainVolumeChanged(mainVolumeValue);
 
-			var musicVolumeValue = (float)GetConfigValue("MainVolume");
+			var musicVolumeValue = (float)GetConfigValue("MusicVolume");
 			_musicVolumeOption.Value= musicVolumeValue;
+			OnMusicVolumeChanged(musicVolumeValue);
 			
 			var sfxVolumeValue = (float)GetConfigValue("SfxVolume");
 			_sfxVolumeOption.Value= sfxVolumeValue;
+			OnSfxVolumeChanged(sfxVolumeValue);
 		}
 		private void CreateDefaultSettings()
 		{
-			GD.Print("Create default");
+			if (TranslationServer.GetLocale() != "fr_FR")
+			{
+				_languageOption.Select(0);
+			}
+			else
+			{
+				_languageOption.Select(1);
+			}
+			SetConfigValue("Language", _languageOption.Selected);
+			SetConfigValue("Keyboard", _keyboardModeOption.Selected);
+			SetConfigValue("Display", _displayModeOption.Selected);
+			SetConfigValue("Resolution", _screenResolutionOption.Selected);
+			SetConfigValue("Vsync", _vsyncOption.ButtonPressed);
+			SetConfigValue("DisplayFPS", _displayFpsOption.ButtonPressed);
+			SetConfigValue("MaxFPS", _maxFpsOption.Value);
+			SetConfigValue("Brightness", _brightnessOption.Value);
+			SetConfigValue("MainVolume", _mainVolumeOption.Value);
+			SetConfigValue("MusicVolume", _musicVolumeOption.Value);
+			SetConfigValue("SfxVolume", _sfxVolumeOption.Value);
+			_config.Save(_savePath);
+			GD.Print("Created default settings.");
 		}
 		private Variant GetConfigValue(string key)
 		{
@@ -243,8 +277,6 @@ namespace Settings
 
 			_sfxVolumeValueLabel.Text = GetAudioValuePercentage(_sfxVolumeOption).ToString();
 			SetCustomMinMaxLabelsForSliders(_sfxVolumeOption, "0", "100");
-
-			_fpsDisplayLabel = GetNode("/root/FpsDisplay") as Label;
 		}
 		private double GetAudioValuePercentage(Godot.Range slider)
 		{
@@ -274,7 +306,7 @@ namespace Settings
 		}
 		private void OnKeyboardModeChanged(KeyboardMode value)
 		{
-			Debug.WriteLine(value);
+			GD.Print(value);
 		}
 		private void OnDisplayModeChanged(DisplayMode value)
 		{
@@ -334,13 +366,16 @@ namespace Settings
 				default:
 					break;
 			}
+
 			DisplayServer.WindowSetFlag(DisplayServer.WindowFlags.Borderless, false);
+			
 			var screen_size = DisplayServer.ScreenGetSize();
-			// (Vector2i)screen_size * 0.5 - root.Size * 0.5
 			var _x = (int)Math.Floor((screen_size.x * 0.5) - (root.Size.x * 0.5));
 			var _y = (int)Math.Floor((screen_size.y * 0.5) - (root.Size.y * 0.5));
 			var newScreenPosition = new Vector2i(_x, _y);
+			
 			DisplayServer.WindowSetPosition(newScreenPosition);
+			
 			var settingsX = (int)Math.Floor(root.Size.x * .7f);
 			var settingsY = (int)Math.Floor(root.Size.y * .7f);
 			Size = new Vector2i(settingsX, settingsY);
