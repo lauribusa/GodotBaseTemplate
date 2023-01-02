@@ -12,6 +12,7 @@ _common.ok, Confirm, Accepter, Ok
 _common.cancel, Cancel, Annuler, Annuler
 _common.quit, Quit, Quitter, Quit
 _common.close, Close, Fermer, Fermer
+_common.resume, Resume, Continuer, Resume
 settings.game, Game, Jeu, Jug
 settings.video, Video, Vidéo, Video
 settings.audio, Audio, Son, Audio
