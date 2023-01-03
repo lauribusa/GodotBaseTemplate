@@ -6,6 +6,7 @@ start.play,Play,Jouer,Jugar
 start.onQuit, Quit game?, Quitter le jeu ?, Quit game?
 start.onQuitLabel, Quit game?, Quitter?, Quit game?
 start.quitConfirm, Ok, Accepter, Ok
+start.toMain, Back to main menu, Retour au menu principal, Back to Title
 start.quitCancel, Cancel, Annuler, Cancel
 _common.goBack, Go Back, Retour, Retour
 _common.ok, Confirm, Accepter, Ok

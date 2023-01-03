@@ -20,7 +20,7 @@ public partial class Pause : Control
 
 	public override void _Process(double delta)
 	{
-		if (Input.IsActionJustReleased("Pause"))
+		if (Input.IsActionJustPressed("Pause"))
 		{
 			if (isInMenu) return;
 			if (this.Visible)
@@ -64,6 +64,13 @@ public partial class Pause : Control
 	private void _on_ConfirmationDialog_cancelled()
 	{
 		isInMenu= false;
+	}
+
+	private void _on_ConfirmationDialog_custom(string action)
+	{
+		GetTree().Paused = false;
+		GD.Print(action);
+		GetTree().ChangeSceneToFile("res://Scenes/MainMenu.tscn");
 	}
 
 	private void _on_Resume_pressed()

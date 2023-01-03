@@ -6,6 +6,7 @@
 
 [node name="Control" type="Control"]
 process_mode = 3
+process_priority = 1
 z_index = 99
 layout_mode = 3
 anchors_preset = 15
@@ -99,8 +100,10 @@ title = "start.onQuitLabel"
 size = Vector2i(260, 100)
 ok_button_text = "_common.ok"
 dialog_text = "start.onQuit"
+dialog_close_on_escape = false
 cancel_button_text = "_common.cancel"
 script = ExtResource("3_w5anx")
+showBackToMain = true
 
 [node name="SettingsWindow" parent="." instance=ExtResource("4_ikjc1")]
 
@@ -109,5 +112,7 @@ script = ExtResource("3_w5anx")
 [connection signal="pressed" from="Container/VBoxContainer/Quit/QuitButton" to="." method="_on_Quit_pressed"]
 [connection signal="cancelled" from="ConfirmationDialog" to="." method="_on_ConfirmationDialog_cancelled"]
 [connection signal="confirmed" from="ConfirmationDialog" to="." method="_on_ConfirmationDialog_confirmed"]
+[connection signal="custom_action" from="ConfirmationDialog" to="." method="_on_ConfirmationDialog_custom"]
+[connection signal="visibility_changed" from="ConfirmationDialog" to="ConfirmationDialog" method="OnVisibilityChanged"]
 [connection signal="close_requested" from="SettingsWindow" to="." method="_on_Settings_closed"]
 [connection signal="visibility_changed" from="SettingsWindow" to="." method="_on_Settings_visibility_changed"]
