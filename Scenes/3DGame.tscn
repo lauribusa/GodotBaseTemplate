@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://ykj0d1ttjoyn"]
+[gd_scene load_steps=4 format=3 uid="uid://ykj0d1ttjoyn"]
 
 [ext_resource type="Script" path="res://Scripts/Game/SphereSpin.cs" id="1_541x4"]
+[ext_resource type="PackedScene" uid="uid://dglyn6mwjl0wj" path="res://Scenes/Pause.tscn" id="2_7ddjf"]
 
 [sub_resource type="Environment" id="Environment_cw3xm"]
 background_mode = 1
@@ -18,3 +19,8 @@ current = true
 
 [node name="Light" type="OmniLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.98256, 2.27006, 3.18323)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Control" parent="CanvasLayer" instance=ExtResource("2_7ddjf")]
+visible = false

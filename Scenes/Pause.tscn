@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://brm5ibexcuop2" path="res://Scenes/Prefabs/SettingsWindow.tscn" id="4_ikjc1"]
 
 [node name="Control" type="Control"]
+process_mode = 3
 z_index = 99
 layout_mode = 3
 anchors_preset = 15
@@ -19,7 +20,6 @@ settingsMenuPath = NodePath("SettingsWindow")
 quitConfirmPath = NodePath("ConfirmationDialog")
 
 [node name="ColorRect" type="ColorRect" parent="."]
-layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -28,7 +28,6 @@ grow_vertical = 2
 color = Color(0, 0, 0, 0.490196)
 
 [node name="Container" type="MarginContainer" parent="."]
-layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.233
 anchor_right = 0.767
@@ -39,18 +38,20 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Container"]
-layout_mode = 2
+offset_top = 370.0
+offset_right = 770.0
+offset_bottom = 710.0
 size_flags_vertical = 4
 theme_override_constants/separation = 20
 
 [node name="Resume" type="ColorRect" parent="Container/VBoxContainer"]
 custom_minimum_size = Vector2(0, 100)
-layout_mode = 2
+offset_right = 770.0
+offset_bottom = 100.0
 color = Color(0, 0, 0, 1)
 
 [node name="ResumeButton" type="Button" parent="Container/VBoxContainer/Resume"]
 custom_minimum_size = Vector2(0, 100)
-layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -61,12 +62,13 @@ text = "_common.resume"
 
 [node name="Settings" type="ColorRect" parent="Container/VBoxContainer"]
 custom_minimum_size = Vector2(0, 100)
-layout_mode = 2
+offset_top = 120.0
+offset_right = 770.0
+offset_bottom = 220.0
 color = Color(0, 0, 0, 1)
 
 [node name="SettingsButton" type="Button" parent="Container/VBoxContainer/Settings"]
 custom_minimum_size = Vector2(0, 100)
-layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -77,12 +79,13 @@ text = "start.settings"
 
 [node name="Quit" type="ColorRect" parent="Container/VBoxContainer"]
 custom_minimum_size = Vector2(0, 100)
-layout_mode = 2
+offset_top = 240.0
+offset_right = 770.0
+offset_bottom = 340.0
 color = Color(0, 0, 0, 1)
 
 [node name="QuitButton" type="Button" parent="Container/VBoxContainer/Quit"]
 custom_minimum_size = Vector2(0, 100)
-layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -104,4 +107,7 @@ script = ExtResource("3_w5anx")
 [connection signal="pressed" from="Container/VBoxContainer/Resume/ResumeButton" to="." method="_on_Resume_pressed"]
 [connection signal="pressed" from="Container/VBoxContainer/Settings/SettingsButton" to="." method="_on_Settings_pressed"]
 [connection signal="pressed" from="Container/VBoxContainer/Quit/QuitButton" to="." method="_on_Quit_pressed"]
+[connection signal="cancelled" from="ConfirmationDialog" to="." method="_on_ConfirmationDialog_cancelled"]
 [connection signal="confirmed" from="ConfirmationDialog" to="." method="_on_ConfirmationDialog_confirmed"]
+[connection signal="close_requested" from="SettingsWindow" to="." method="_on_Settings_closed"]
+[connection signal="visibility_changed" from="SettingsWindow" to="." method="_on_Settings_visibility_changed"]
