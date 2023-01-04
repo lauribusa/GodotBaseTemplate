@@ -7,7 +7,7 @@ namespace MainMenu
         [Export(hint: PropertyHint.File, hintString: "Credit scene")]
         public PackedScene scene;
 
-        private void _on_Credits_pressed()
+        private void ToCreditsScene()
         {
             GetTree().ChangeSceneToPacked(scene);
         }

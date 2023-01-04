@@ -129,6 +129,10 @@ text = "_common.close"
 
 [node name="Video" type="MarginContainer" parent="TabContainer"]
 visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 31.0
 theme_override_constants/margin_left = 100
 theme_override_constants/margin_top = 50
 theme_override_constants/margin_right = 100
@@ -137,16 +141,22 @@ theme_override_constants/margin_bottom = 50
 [node name="GridContainer" type="GridContainer" parent="TabContainer/Video"]
 offset_left = 100.0
 offset_top = 50.0
-offset_right = 1227.0
-offset_bottom = 316.0
+offset_right = 1820.0
+offset_bottom = 999.0
 theme_override_constants/v_separation = 20
 columns = 2
 
 [node name="DisplayModeLabel" type="Label" parent="TabContainer/Video/GridContainer"]
+offset_top = 2.0
+offset_right = 858.0
+offset_bottom = 28.0
 size_flags_horizontal = 3
 text = "settings.displayMode"
 
 [node name="DisplayModeOption" type="OptionButton" parent="TabContainer/Video/GridContainer"]
+offset_left = 862.0
+offset_right = 1720.0
+offset_bottom = 31.0
 item_count = 2
 selected = 0
 popup/item_0/text = "settings.fullscreen"
@@ -155,10 +165,17 @@ popup/item_1/text = "settings.windowed"
 popup/item_1/id = 1
 
 [node name="ScreenResolutionLabel" type="Label" parent="TabContainer/Video/GridContainer"]
+offset_top = 53.0
+offset_right = 858.0
+offset_bottom = 79.0
 size_flags_horizontal = 3
 text = "settings.screenResolution"
 
 [node name="ScreenResolutionOption" type="OptionButton" parent="TabContainer/Video/GridContainer"]
+offset_left = 862.0
+offset_top = 51.0
+offset_right = 1720.0
+offset_bottom = 82.0
 item_count = 5
 selected = 2
 popup/item_0/text = "3840x2160"
@@ -173,23 +190,46 @@ popup/item_4/text = "654x480"
 popup/item_4/id = 4
 
 [node name="VsyncLabel" type="Label" parent="TabContainer/Video/GridContainer"]
+offset_top = 102.0
+offset_right = 858.0
+offset_bottom = 128.0
 text = "settings.vsync"
 
 [node name="VsyncOption" type="CheckButton" parent="TabContainer/Video/GridContainer"]
+offset_left = 862.0
+offset_top = 102.0
+offset_right = 1720.0
+offset_bottom = 128.0
 
 [node name="DisplayFPSLabel" type="Label" parent="TabContainer/Video/GridContainer"]
+offset_top = 148.0
+offset_right = 858.0
+offset_bottom = 174.0
 text = "settings.displayFps"
 
 [node name="DisplayFPSOption" type="CheckButton" parent="TabContainer/Video/GridContainer"]
+offset_left = 862.0
+offset_top = 148.0
+offset_right = 1720.0
+offset_bottom = 174.0
 
 [node name="MaxFPSLabel" type="Label" parent="TabContainer/Video/GridContainer"]
+offset_top = 194.0
+offset_right = 858.0
+offset_bottom = 220.0
 size_flags_horizontal = 3
 text = "settings.maxFps"
 
 [node name="MaxFPS" type="HBoxContainer" parent="TabContainer/Video/GridContainer"]
+offset_left = 862.0
+offset_top = 194.0
+offset_right = 1720.0
+offset_bottom = 220.0
 size_flags_horizontal = 3
 
 [node name="MaxFPSSlider" type="HSlider" parent="TabContainer/Video/GridContainer/MaxFPS"]
+offset_right = 427.0
+offset_bottom = 26.0
 size_flags_horizontal = 3
 size_flags_vertical = 1
 max_value = 144.0
@@ -227,17 +267,29 @@ horizontal_alignment = 2
 vertical_alignment = 1
 
 [node name="MaxFPSValueLabel" type="Label" parent="TabContainer/Video/GridContainer/MaxFPS"]
+offset_left = 431.0
+offset_right = 858.0
+offset_bottom = 26.0
 size_flags_horizontal = 3
 text = "_common.max"
 horizontal_alignment = 1
 
 [node name="BrightnessLabel" type="Label" parent="TabContainer/Video/GridContainer"]
+offset_top = 240.0
+offset_right = 858.0
+offset_bottom = 266.0
 text = "settings.brightness"
 
 [node name="Brightness" type="HBoxContainer" parent="TabContainer/Video/GridContainer"]
+offset_left = 862.0
+offset_top = 240.0
+offset_right = 1720.0
+offset_bottom = 266.0
 size_flags_horizontal = 3
 
 [node name="BrightnessSlider" type="HSlider" parent="TabContainer/Video/GridContainer/Brightness"]
+offset_right = 427.0
+offset_bottom = 26.0
 size_flags_horizontal = 3
 size_flags_vertical = 1
 max_value = 2.0
@@ -274,22 +326,25 @@ horizontal_alignment = 2
 vertical_alignment = 1
 
 [node name="BrightnessValueLabel" type="Label" parent="TabContainer/Video/GridContainer/Brightness"]
+offset_left = 431.0
+offset_right = 858.0
+offset_bottom = 26.0
 size_flags_horizontal = 3
 text = "_common.max"
 horizontal_alignment = 1
 
 [node name="CloseButtonContainer" type="MarginContainer" parent="TabContainer/Video"]
 offset_left = 100.0
-offset_top = 285.0
-offset_right = 1227.0
-offset_bottom = 316.0
+offset_top = 968.0
+offset_right = 1820.0
+offset_bottom = 999.0
 size_flags_vertical = 8
 theme_override_constants/margin_left = 500
 theme_override_constants/margin_right = 500
 
 [node name="CloseButton" type="Button" parent="TabContainer/Video/CloseButtonContainer"]
 offset_left = 500.0
-offset_right = 627.0
+offset_right = 1220.0
 offset_bottom = 31.0
 size_flags_vertical = 8
 text = "_common.close"
@@ -469,18 +524,18 @@ offset_bottom = 31.0
 size_flags_vertical = 8
 text = "_common.close"
 
-[connection signal="close_requested" from="." to="." method="_on_settings_window_close_requested"]
-[connection signal="item_selected" from="TabContainer/Game/GridContainer/LanguageOption" to="." method="_on_language_option_item_selected"]
-[connection signal="item_selected" from="TabContainer/Game/GridContainer/KeyboardModeOption" to="." method="_on_keyboard_mode_option_item_selected"]
-[connection signal="pressed" from="TabContainer/Game/CloseButtonContainer/CloseButton" to="." method="_on_settings_window_close_requested"]
-[connection signal="item_selected" from="TabContainer/Video/GridContainer/DisplayModeOption" to="." method="_on_display_mode_option_item_selected"]
-[connection signal="item_selected" from="TabContainer/Video/GridContainer/ScreenResolutionOption" to="." method="_on_screen_resolution_option_item_selected"]
-[connection signal="toggled" from="TabContainer/Video/GridContainer/VsyncOption" to="." method="_on_vsync_option_toggled"]
-[connection signal="toggled" from="TabContainer/Video/GridContainer/DisplayFPSOption" to="." method="_on_display_fps_option_toggled"]
-[connection signal="drag_ended" from="TabContainer/Video/GridContainer/MaxFPS/MaxFPSSlider" to="." method="_on_maxfps_value_changed"]
-[connection signal="value_changed" from="TabContainer/Video/GridContainer/Brightness/BrightnessSlider" to="." method="_on_brightness_value_changed"]
-[connection signal="pressed" from="TabContainer/Video/CloseButtonContainer/CloseButton" to="." method="_on_settings_window_close_requested"]
-[connection signal="value_changed" from="TabContainer/Audio/GridContainer/MainVolume/MainVolumeSlider" to="." method="_on_mainVolume_value_changed"]
-[connection signal="value_changed" from="TabContainer/Audio/GridContainer/MusicVolume/MusicVolumeSlider" to="." method="_on_musicVolume_value_changed"]
-[connection signal="value_changed" from="TabContainer/Audio/GridContainer/SFXVolume/SFXVolumeSlider" to="." method="_on_sfxVolume_value_changed"]
-[connection signal="pressed" from="TabContainer/Audio/CloseButtonContainer/CloseButton" to="." method="_on_settings_window_close_requested"]
+[connection signal="close_requested" from="." to="." method="OnSettingsClosed"]
+[connection signal="item_selected" from="TabContainer/Game/GridContainer/LanguageOption" to="." method="OnLanguageSelected"]
+[connection signal="item_selected" from="TabContainer/Game/GridContainer/KeyboardModeOption" to="." method="OnKeyboardModeSelected"]
+[connection signal="pressed" from="TabContainer/Game/CloseButtonContainer/CloseButton" to="." method="OnSettingsClosed"]
+[connection signal="item_selected" from="TabContainer/Video/GridContainer/DisplayModeOption" to="." method="OnDisplayModeSelected"]
+[connection signal="item_selected" from="TabContainer/Video/GridContainer/ScreenResolutionOption" to="." method="OnScreenResolutionSelected"]
+[connection signal="toggled" from="TabContainer/Video/GridContainer/VsyncOption" to="." method="OnVsyncToggled"]
+[connection signal="toggled" from="TabContainer/Video/GridContainer/DisplayFPSOption" to="." method="OnDisplayFpsToggled"]
+[connection signal="drag_ended" from="TabContainer/Video/GridContainer/MaxFPS/MaxFPSSlider" to="." method="OnMaxFpsSelected"]
+[connection signal="value_changed" from="TabContainer/Video/GridContainer/Brightness/BrightnessSlider" to="." method="OnBrightnessSelected"]
+[connection signal="pressed" from="TabContainer/Video/CloseButtonContainer/CloseButton" to="." method="OnSettingsClosed"]
+[connection signal="value_changed" from="TabContainer/Audio/GridContainer/MainVolume/MainVolumeSlider" to="." method="OnMainVolumeSelected"]
+[connection signal="value_changed" from="TabContainer/Audio/GridContainer/MusicVolume/MusicVolumeSlider" to="." method="OnMusicVolumeSelected"]
+[connection signal="value_changed" from="TabContainer/Audio/GridContainer/SFXVolume/SFXVolumeSlider" to="." method="OnSfxVolumeSelected"]
+[connection signal="pressed" from="TabContainer/Audio/CloseButtonContainer/CloseButton" to="." method="OnSettingsClosed"]

@@ -1,4 +1,8 @@
-[gd_scene format=3 uid="uid://b8s08ahnokggs"]
+[gd_scene load_steps=2 format=3 uid="uid://b8s08ahnokggs"]
+
+[ext_resource type="AudioStream" uid="uid://c5pjpeulcndbq" path="res://Audio/Lukrembo-Onion.mp3" id="1_k16c3"]
 
 [node name="MusicPlayer" type="AudioStreamPlayer"]
+stream = ExtResource("1_k16c3")
+autoplay = true
 bus = &"Music"

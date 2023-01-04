@@ -104,49 +104,43 @@ namespace Settings
 		#endregion
 
 		#region Signals
-		public void _on_settings_window_close_requested()
+		public void OnSettingsClosed()
 		{
 			_config.Save(_savePath);
 			this.Hide();
 		}
-		public void _on_language_option_item_selected(int index)
+		public void OnLanguageSelected(int index)
 		{
-			Debug.WriteLine("language option: " + index);
 			OnLanguageChanged((Language)index);
 			SetConfigValue("Language", index);
 		}
-		public void _on_keyboard_mode_option_item_selected(int index)
+		public void OnKeyboardModeSelected(int index)
 		{
-			Debug.WriteLine("keyboard mode: " + index);
 			OnKeyboardModeChanged((KeyboardMode)index);
 			SetConfigValue("Keyboard", index);
 		}
-		public void _on_display_mode_option_item_selected(int index)
+		public void OnDisplayModeSelected(int index)
 		{
-			Debug.WriteLine("display mode: " + index);
 			OnDisplayModeChanged((DisplayMode)index);
 			SetConfigValue("Display", index);
 		}
-		public void _on_screen_resolution_option_item_selected(int index)
+		public void OnScreenResolutionSelected(int index)
 		{
-			Debug.WriteLine("screen resolution : " + (DisplayResolution)index);
 			OnScreenResolutionChanged((DisplayResolution)index);
 			this.PopupCenteredRatio(.7f);
 			SetConfigValue("Resolution", index);
 		}
-		public void _on_vsync_option_toggled(bool buttonPressed)
+		public void OnVsyncToggled(bool buttonPressed)
 		{
-			Debug.WriteLine("vsync mode: " + buttonPressed);
 			OnVsyncChanged(buttonPressed);
 			SetConfigValue("Vsync", buttonPressed);
 		}
-		public void _on_display_fps_option_toggled(bool buttonPressed)
+		public void OnDisplayFpsToggled(bool buttonPressed)
 		{
-			Debug.WriteLine("display fps mode: " + buttonPressed);
 			OnDisplayFpsChanged(buttonPressed);
 			SetConfigValue("DisplayFPS", buttonPressed);
 		}
-		public void _on_maxfps_value_changed(bool hasChanged)
+		public void OnMaxFpsSelected(bool hasChanged)
 		{
 			if (hasChanged)
 			{
@@ -154,23 +148,23 @@ namespace Settings
 				SetConfigValue("MaxFPS", (int)Math.Floor(_maxFpsOption.Value));
 			}
 		}
-		public void _on_brightness_value_changed(float value)
+		public void OnBrightnessSelected(float value)
 		{
 			Debug.WriteLine("brightness: " + value);
 			OnBrightnessChanged(value);
 			SetConfigValue("Brightness", value);
 		}
-		public void _on_mainVolume_value_changed(float value)
+		public void OnMainVolumeSelected(float value)
 		{
 			OnMainVolumeChanged(value);
 			SetConfigValue("MainVolume", value);
 		}
-		public void _on_musicVolume_value_changed(float value)
+		public void OnMusicVolumeSelected(float value)
 		{
 			OnMusicVolumeChanged(value);
 			SetConfigValue("MusicVolume", value);
 		}
-		public void _on_sfxVolume_value_changed(float value)
+		public void OnSfxVolumeSelected(float value)
 		{
 			OnSfxVolumeChanged(value);
 			SetConfigValue("SfxVolume", value);
@@ -325,9 +319,7 @@ namespace Settings
 		}
 		private void OnVsyncChanged(bool isVsyncActive)
 		{
-			SaveData data = SaveSystem.Load(1);
-			GD.Print(data.saveSlotIndex);
-			GD.Print(data.lastTimeSaved);
+			SaveData data = SaveSystem.Load(0);
 			if (isVsyncActive)
 			{
 				DisplayServer.WindowSetVsyncMode(DisplayServer.VSyncMode.Enabled);
@@ -340,7 +332,6 @@ namespace Settings
 				return;
 			}
 			DisplayServer.WindowSetVsyncMode(DisplayServer.VSyncMode.Disabled);
-			Debug.WriteLine(Engine.MaxFps);
 			_maxFpsOption.Editable = true;
 		}
 		private void OnScreenResolutionChanged(DisplayResolution displayResolution)

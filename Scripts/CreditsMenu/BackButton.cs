@@ -4,7 +4,7 @@ using System;
 namespace Credits;
 public partial class BackButton : Button
 {
-	private void _on_button_pressed()
+	private void ToMainMenu()
 	{
 		GetTree().ChangeSceneToFile("res://Scenes/MainMenu.tscn");
 	}

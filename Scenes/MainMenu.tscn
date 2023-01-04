@@ -1,14 +1,13 @@
-[gd_scene load_steps=11 format=3 uid="uid://blrsosuq5qswd"]
+[gd_scene load_steps=10 format=3 uid="uid://blrsosuq5qswd"]
 
 [ext_resource type="Script" path="res://Scripts/MainMenu/MainMenu.cs" id="1_r81h0"]
 [ext_resource type="FontFile" uid="uid://cmj42ewcmaqhs" path="res://Assets/Font/kenvector_future.ttf" id="2_uy8b7"]
-[ext_resource type="Script" path="res://Scenes/Play.cs" id="3_sivoh"]
+[ext_resource type="Script" path="res://Scripts/MainMenu/Play.cs" id="3_s8c44"]
 [ext_resource type="Script" path="res://Scripts/MainMenu/Credits.cs" id="3_yhbvx"]
 [ext_resource type="PackedScene" uid="uid://ca2o1enc2acdg" path="res://Scenes/Credits.tscn" id="4_5gkrw"]
 [ext_resource type="PackedScene" uid="uid://ykj0d1ttjoyn" path="res://Scenes/3DGame.tscn" id="4_ar81c"]
 [ext_resource type="Script" path="res://Scripts/MainMenu/MainMenuConfirmationDialog.cs" id="5_5gcp7"]
 [ext_resource type="PackedScene" uid="uid://brm5ibexcuop2" path="res://Scenes/Prefabs/SettingsWindow.tscn" id="6_pvdu3"]
-[ext_resource type="PackedScene" uid="uid://b8s08ahnokggs" path="res://Scenes/Prefabs/music_player.tscn" id="7_mow5h"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_fbvua"]
 font = ExtResource("2_uy8b7")
@@ -70,40 +69,40 @@ theme_override_constants/margin_right = 500
 layout_mode = 2
 theme_override_constants/separation = 6
 
-[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/MarginContainer/VBoxContainer"]
+[node name="PlayContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="Play" type="Button" parent="MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/MarginContainer"]
+[node name="Play" type="Button" parent="MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/PlayContainer"]
 layout_mode = 2
 text = "start.play"
-script = ExtResource("3_sivoh")
+script = ExtResource("3_s8c44")
 scene = ExtResource("4_ar81c")
 
-[node name="MarginContainer2" type="MarginContainer" parent="MarginContainer/VBoxContainer/MarginContainer/VBoxContainer"]
+[node name="SettingsContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="Settings" type="Button" parent="MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/MarginContainer2"]
+[node name="Settings" type="Button" parent="MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/SettingsContainer"]
 layout_mode = 2
 text = "start.settings"
 
-[node name="MarginContainer3" type="MarginContainer" parent="MarginContainer/VBoxContainer/MarginContainer/VBoxContainer"]
+[node name="CreditsContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="Credits" type="Button" parent="MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/MarginContainer3"]
+[node name="Credits" type="Button" parent="MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/CreditsContainer"]
 layout_mode = 2
 text = "start.credits"
 script = ExtResource("3_yhbvx")
 scene = ExtResource("4_5gkrw")
 
-[node name="MarginContainer4" type="MarginContainer" parent="MarginContainer/VBoxContainer/MarginContainer/VBoxContainer"]
+[node name="QuitContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="Quit" type="Button" parent="MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/MarginContainer4"]
+[node name="Quit" type="Button" parent="MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/QuitContainer"]
 layout_mode = 2
 text = "start.quit"
 
@@ -115,13 +114,11 @@ dialog_text = "start.onQuit"
 cancel_button_text = "_common.cancel"
 script = ExtResource("5_5gcp7")
 
-[node name="MusicPlayer" parent="." instance=ExtResource("7_mow5h")]
-
 [node name="SettingsWindow" parent="." instance=ExtResource("6_pvdu3")]
 
-[connection signal="pressed" from="MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/MarginContainer/Play" to="MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/MarginContainer/Play" method="_on_Play_pressed"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/MarginContainer2/Settings" to="DialogController" method="_on_Settings_pressed"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/MarginContainer3/Credits" to="MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/MarginContainer3/Credits" method="_on_Credits_pressed"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/MarginContainer4/Quit" to="DialogController" method="_on_Quit_pressed"]
-[connection signal="confirmed" from="ConfirmationDialog" to="DialogController" method="_on_ConfirmationDialog_confirmed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/PlayContainer/Play" to="MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/PlayContainer/Play" method="ToGameScene"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/SettingsContainer/Settings" to="DialogController" method="OpenSettings"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/CreditsContainer/Credits" to="MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/CreditsContainer/Credits" method="ToCreditsScene"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/QuitContainer/Quit" to="DialogController" method="OpenQuitDialog"]
+[connection signal="confirmed" from="ConfirmationDialog" to="DialogController" method="QuitGame"]
 [connection signal="visibility_changed" from="ConfirmationDialog" to="ConfirmationDialog" method="OnVisibilityChanged"]

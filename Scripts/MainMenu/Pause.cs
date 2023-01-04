@@ -11,7 +11,7 @@ public partial class Pause : Control
 	private ConfirmationDialog popupMenu;
 
 	private bool isInMenu = false;
-
+	#region Lifecycle events
 	public override void _Ready()
 	{
 		popupMenu = GetNode(quitConfirmPath) as ConfirmationDialog;
@@ -33,50 +33,51 @@ public partial class Pause : Control
 			GetTree().Paused = true;
 		}
 	}
+	#endregion
 
-	private void _on_Quit_pressed()
+	#region Signals
+	private void OpenQuitDialog()
 	{
 		isInMenu = true;
 		popupMenu.PopupCentered();
 	}
 
-	private void _on_Settings_pressed()
+	private void OpenSettings()
 	{
 		isInMenu = true;
 		settingsPopup.PopupCenteredRatio(.7f);
 	}
 
-	private void _on_Settings_visibility_changed()
+	private void OnSettingsVisibilityChanged()
 	{
-		if(settingsPopup.Visible)
+		if (settingsPopup.Visible)
 		{
-			isInMenu= true;
+			isInMenu = true;
 			return;
 		}
 		isInMenu = false;
 	}
 
-	private void _on_ConfirmationDialog_confirmed()
+	private void QuitGame()
 	{
 		GetTree().Quit();
 	}
 
-	private void _on_ConfirmationDialog_cancelled()
+	private void OnQuitDialogCancel()
 	{
-		isInMenu= false;
+		isInMenu = false;
 	}
 
-	private void _on_ConfirmationDialog_custom(string action)
+	private void BackToMain(string action)
 	{
 		GetTree().Paused = false;
-		GD.Print(action);
 		GetTree().ChangeSceneToFile("res://Scenes/MainMenu.tscn");
 	}
 
-	private void _on_Resume_pressed()
+	private void ResumeGame()
 	{
 		Hide();
 		GetTree().Paused = false;
-		GD.Print("Resume");
 	}
+	#endregion
 }

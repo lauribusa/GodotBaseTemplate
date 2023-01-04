@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://Scripts/MainMenu/MainMenuConfirmationDialog.cs" id="3_w5anx"]
 [ext_resource type="PackedScene" uid="uid://brm5ibexcuop2" path="res://Scenes/Prefabs/SettingsWindow.tscn" id="4_ikjc1"]
 
-[node name="Control" type="Control"]
+[node name="Pause" type="Control"]
 process_mode = 3
 process_priority = 1
 z_index = 99
@@ -107,12 +107,11 @@ showBackToMain = true
 
 [node name="SettingsWindow" parent="." instance=ExtResource("4_ikjc1")]
 
-[connection signal="pressed" from="Container/VBoxContainer/Resume/ResumeButton" to="." method="_on_Resume_pressed"]
-[connection signal="pressed" from="Container/VBoxContainer/Settings/SettingsButton" to="." method="_on_Settings_pressed"]
-[connection signal="pressed" from="Container/VBoxContainer/Quit/QuitButton" to="." method="_on_Quit_pressed"]
-[connection signal="cancelled" from="ConfirmationDialog" to="." method="_on_ConfirmationDialog_cancelled"]
-[connection signal="confirmed" from="ConfirmationDialog" to="." method="_on_ConfirmationDialog_confirmed"]
-[connection signal="custom_action" from="ConfirmationDialog" to="." method="_on_ConfirmationDialog_custom"]
+[connection signal="pressed" from="Container/VBoxContainer/Resume/ResumeButton" to="." method="ResumeGame"]
+[connection signal="pressed" from="Container/VBoxContainer/Settings/SettingsButton" to="." method="OpenSettings"]
+[connection signal="pressed" from="Container/VBoxContainer/Quit/QuitButton" to="." method="OpenQuitDialog"]
+[connection signal="cancelled" from="ConfirmationDialog" to="." method="OnQuitDialogCancel"]
+[connection signal="confirmed" from="ConfirmationDialog" to="." method="QuitGame"]
+[connection signal="custom_action" from="ConfirmationDialog" to="." method="BackToMain"]
 [connection signal="visibility_changed" from="ConfirmationDialog" to="ConfirmationDialog" method="OnVisibilityChanged"]
-[connection signal="close_requested" from="SettingsWindow" to="." method="_on_Settings_closed"]
-[connection signal="visibility_changed" from="SettingsWindow" to="." method="_on_Settings_visibility_changed"]
+[connection signal="visibility_changed" from="SettingsWindow" to="." method="OnSettingsVisibilityChanged"]

@@ -35,8 +35,6 @@ offset_left = 25.0
 offset_top = 25.0
 offset_right = 1895.0
 offset_bottom = 980.0
-grow_horizontal = 0
-grow_vertical = 0
 
 [node name="Button" type="Button" parent="MarginContainer/VBoxContainer"]
 custom_minimum_size = Vector2(150, 40)
@@ -76,8 +74,6 @@ size_flags_vertical = 3
 [node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/MarginContainer/VBoxContainer"]
 offset_right = 1870.0
 offset_bottom = 148.0
-grow_horizontal = 0
-grow_vertical = 0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
@@ -108,8 +104,6 @@ uppercase = true
 offset_top = 152.0
 offset_right = 1870.0
 offset_bottom = 301.0
-grow_horizontal = 0
-grow_vertical = 0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
@@ -140,8 +134,6 @@ uppercase = true
 offset_top = 305.0
 offset_right = 1870.0
 offset_bottom = 454.0
-grow_horizontal = 0
-grow_vertical = 0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
@@ -168,4 +160,4 @@ size_flags_vertical = 5
 text = "Hideo Kojima"
 uppercase = true
 
-[connection signal="pressed" from="MarginContainer/VBoxContainer/Button" to="MarginContainer/VBoxContainer/Button" method="_on_button_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Button" to="MarginContainer/VBoxContainer/Button" method="ToMainMenu"]

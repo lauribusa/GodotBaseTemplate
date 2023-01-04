@@ -10,27 +10,31 @@ namespace MainMenu
 		[Export]
 		public NodePath nodePath;
 		private ConfirmationDialog popupMenu;
-
+		#region Lifecycle events
 		public override void _Ready()
 		{
 			popupMenu = GetNode(nodePath) as ConfirmationDialog;
 			settingsPopup = GetNode(settingsMenuPath) as Window;
 		}
+		#endregion
 
-		private void _on_Quit_pressed()
+		#region Signals
+		private void OpenQuitDialog()
 		{
 			popupMenu.PopupCentered();
 		}
 
-		private void _on_Settings_pressed()
+		private void OpenSettings()
 		{
 			settingsPopup.PopupCenteredRatio(.7f);
 		}
 
-		private void _on_ConfirmationDialog_confirmed()
+		private void QuitGame()
 		{
 			GetTree().Quit();
 		}
+		#endregion
+
 	}
 }
 
