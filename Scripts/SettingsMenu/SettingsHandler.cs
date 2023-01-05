@@ -328,7 +328,6 @@ namespace Settings
 				_maxFpsOption.Value = refreshRate;
 				OnMaxFpsChanged(refreshRate);
 				_maxFpsOption.Editable = false;
-				Debug.WriteLine(Engine.MaxFps);
 				return;
 			}
 			DisplayServer.WindowSetVsyncMode(DisplayServer.VSyncMode.Disabled);
